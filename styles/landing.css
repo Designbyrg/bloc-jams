@@ -40,7 +40,7 @@ The prefixes with names in dashes, like -webkit-, are known as vendor prefixes.
 
 .point {
 
-    position: relative;
+    position: relative
     padding: 2rem;
     text-align: center;
 }
