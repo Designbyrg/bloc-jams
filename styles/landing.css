@@ -52,7 +52,7 @@ The prefixes with names in dashes, like -webkit-, are known as vendor prefixes.
     transition: all 0.25s ease-in-out;
     -webkit-transition-delay: 0.2s;
     -moz-transition-delay: 0.2s;
-    transition-delay: 0.4s;
+    transition-delay: 0.3s;
 }
 
 .point .point-title {
