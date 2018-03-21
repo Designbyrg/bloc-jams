@@ -28,6 +28,24 @@ var albumMarconi = {
         { title: 'Wrong phone number', duration: '2:15'}
     ]
 };
+
+// Another Example Album
+var albumAtcq = {
+    title: 'Midnight Maruaders',
+    artist: 'ATCQ',
+    label: 'Jive Records',
+    year: '1993',
+    albumArtUrl: 'assets/images/album_covers/20.png',
+    songs: [
+        { title: 'Midnight Marauders Tour Guide', duration: '0:45' },
+        { title: 'Steve Biko', duration: '3:11' },
+        { title: 'Award Tour', duration: '3:46'},
+        { title: '8 Million Stories', duration: '4:30' },
+        { title: 'Midnight', duration: '3:49'}
+    ]
+};
+
+
 var createSongRow = function(songNumber, songName, songLength) {
      var template =
         '<tr class="album-view-song-item">'
@@ -41,14 +59,15 @@ var createSongRow = function(songNumber, songName, songLength) {
  };
 
 
- var setCurrentAlbum = function(album) {
-      // #1
-      var albumTitle = document.getElementsByClassName('album-view-title')[0];
-      var albumArtist = document.getElementsByClassName('album-view-artist')[0];
-      var albumReleaseInfo = document.getElementsByClassName('album-view-release-info')[0];
-      var albumImage = document.getElementsByClassName('album-cover-art')[0];
-      var albumSongList = document.getElementsByClassName('album-view-song-list')[0];
 
+      // #1
+    var albumTitle = document.getElementsByClassName('album-view-title')[0];
+    var albumArtist = document.getElementsByClassName('album-view-artist')[0];
+    var albumReleaseInfo = document.getElementsByClassName('album-view-release-info')[0];
+    var albumImage = document.getElementsByClassName('album-cover-art')[0];
+    var albumSongList = document.getElementsByClassName('album-view-song-list')[0];
+
+    var setCurrentAlbum = function(album) {
       // #2
       albumTitle.firstChild.nodeValue = album.title;
       albumArtist.firstChild.nodeValue = album.artist;
@@ -66,4 +85,15 @@ var createSongRow = function(songNumber, songName, songLength) {
 
   window.onload = function() {
       setCurrentAlbum(albumPicasso);
-  };
+
+      var albums = [albumPicasso, albumMarconi, albumAtcq];
+      var index = 1;
+  albumImage.addEventListener("click", function(event) {
+    setCurrentAlbum(albums[index]);
+    index++;
+    if (index == albums.length) {
+      index = 0;
+    }
+
+  });
+};
