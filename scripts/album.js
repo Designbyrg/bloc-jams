@@ -153,4 +153,4 @@ var pauseButtonTemplate = '<a class="album-song-button"><span class="ion-pause">
            clickHandler(event.target);
        });
      }
-  }
+  };
