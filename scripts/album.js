@@ -59,15 +59,21 @@ var createSongRow = function(songNumber, songName, songLength) {
       // #3
       albumSongList.innerHTML = '';
 
+      // #4
+      for (var i = 0; i < album.songs.length; i++) {
+          albumSongList.innerHTML += createSongRow(i + 1, album.songs[i].title, album.songs[i].duration);
+      }
       //#5
-      var findParentByClassName = function(element, targetClass) {
-        if (element) {
-          var currentParent = element.parentElement;
-          while (currentParent.className !== targetClass && currentParent.className !== null) {
-            currentParent = currentParent.parentElement;
-        }
-        return currentParent;
-    }
+};
+
+var findParentByClassName = function(element, targetClass) {
+  if (element) {
+    var currentParent = element.parentElement;
+    while (currentParent.className !== targetClass && currentParent.className !== null) {
+      currentParent = currentParent.parentElement;
+  }
+  return currentParent;
+ }
 };
 
     //#6
@@ -88,16 +94,9 @@ var createSongRow = function(songNumber, songName, songLength) {
             return;
     }
 };
-
-      // #4
-      for (var i = 0; i < album.songs.length; i++) {
-          albumSongList.innerHTML += createSongRow(i + 1, album.songs[i].title, album.songs[i].duration);
-      }
-  };
-
   var clickHandler = function(targetElement) {
 
-    var songItem = getSongItem(targetElement);
+  var songItem = getSongItem(targetElement);
 
     if (currentlyPlayingSong === null) {
              songItem.innerHTML = pauseButtonTemplate;
